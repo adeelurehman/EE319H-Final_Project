@@ -37,7 +37,7 @@
 //   PC5 ---->>----- PC4
 //   Gnd ----------- Gnd
 #include <stdint.h>
-#include "../inc/tm4c123gh6pm.h"
+#include "inc/tm4c123gh6pm.h"
 
 #include "FIFO.h"
 #include "UART.h"

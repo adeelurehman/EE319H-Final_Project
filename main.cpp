@@ -50,7 +50,7 @@
 // Gnd (pin 1) connected to ground
 
 #include <stdint.h>
-#include "../inc/tm4c123gh6pm.h"
+#include "inc/tm4c123gh6pm.h"
 #include "PLL.h"
 #include "ST7735.h"
 #include "Random.h"

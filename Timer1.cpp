@@ -23,7 +23,7 @@
  */
 #include <stdint.h>
 #include "Timer1.h"
-#include "../inc/tm4c123gh6pm.h"
+#include "inc/tm4c123gh6pm.h"
 
 void (*PeriodicTask1)(void);   // user function
 extern "C" void TIMER1A_Handler(void);
