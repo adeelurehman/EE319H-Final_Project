@@ -1,0 +1,12 @@
+*.axf
+*htm
+*.lnp
+*.map
+*.adeel
+*.dep
+*.d
+*.o
+*.crf
+*.lst
+RTE/_Lab_10/RTE_Components.h
+
