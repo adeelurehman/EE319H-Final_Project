@@ -61,7 +61,19 @@
 #include "Timer0.h"
 #include "Timer1.h"
 
+#define FallTest
 
+#ifdef FallTest
+void tickUpdate() {
+	
+}
+
+int main(void) {
+	Timer0_Init(&tickUpdate, 0x3D08FF);
+}
+#endif
+
+#ifdef OGcode
 SlidePot my(1500,0);
 
 extern "C" void DisableInterrupts(void);
@@ -132,7 +144,7 @@ int main(void){
   }
 
 }
-
+#endif
 
 
 
