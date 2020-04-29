@@ -61,13 +61,14 @@
 #include "Timer0.h"
 #include "Timer1.h"
 #include "Player.h"
-#include "Sprite_Init.h"
+#include "Sprites.h"
+#include "Barrier.h"
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
 extern "C" void SysTick_Handler(void);
 
-#define FallTest
+#define BarrierTest //Options: OGcode, FallTest, BarrierTest
 
 #ifdef FallTest
 
@@ -86,13 +87,27 @@ int main(void) {
 	ST7735_SetRotation(1); 
 	fireboy = Fireboy_Init(100,50);
 	watergirl = Watergirl_Init(50,50); 
+	//Floor_Init(0,120,160,8); 
 	Timer0_Init(&tickUpdate, 0x3D08FF);
+	Timer0_Start(); 
 	EnableInterrupts(); 
 	while(true) {
 		ST7735_FillScreen(0x0000); 
+		floor.drawMe();
 		fireboy->drawMe();
 		watergirl->drawMe(); 
 	}
+}
+#endif
+
+#ifdef BarrierTest
+int main() {
+	int x = 50;
+	int y = 50;
+	int w = 5;
+	int h = 5;
+	volatile int test = floor.test(x,y,w,h);
+	test = test;
 }
 #endif
 

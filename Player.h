@@ -20,6 +20,7 @@ public:
 	
 	void update(); 
 	void drawMe();
+	void jump();
 };
 
 #endif

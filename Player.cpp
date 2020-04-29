@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "ST7735.h"
 #include "Physics.h"
+#include "Sprites.h"
 
 Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y) {
 	this->type = type; 
@@ -14,10 +15,12 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 }
 
 void Player::update() {
-	Xpos += Xvel;
-	Ypos += Yvel;
-	Yvel += Y_GRAVITY;
-	Xvel += X_GRAVITY; 
+	if (floor.test(Xpos+Xvel, Ypos+Yvel, width, height) ) {
+		Xpos += Xvel;
+		Ypos += Yvel;
+		Yvel += Y_GRAVITY;
+		Xvel += X_GRAVITY; 
+	}
 }
 
 void Player::drawMe() {
@@ -30,5 +33,10 @@ void Player::drawMe() {
 	else if (Xvel < 0) {
 		ST7735_DrawBitmap(this->Xpos, this->Ypos, this->facingLeftTexture, width, height);
 	}
-	
+}
+
+void Player::jump() {
+	if (Yvel==0) {
+		Yvel = JUMP_VELOCITY;
+	}
 }

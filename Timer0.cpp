@@ -47,9 +47,17 @@ void Timer0_Init(void(*task)(void), uint32_t period){
 // interrupts enabled in the main program after all devices initialized
 // vector number 35, interrupt number 19
   NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
-  TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A
+  //TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A MOVED TO TIMER0_START
 }
 void TIMER0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER0A timeout
   (*PeriodicTask0)();                // execute user task
+}
+
+void Timer0_Pause() {
+	TIMER0_CTL_R = 0x00000000;
+}
+
+void Timer0_Start() {
+	TIMER0_CTL_R = 0x00000001;
 }

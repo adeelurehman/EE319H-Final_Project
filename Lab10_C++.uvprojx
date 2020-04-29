@@ -324,7 +324,7 @@
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
@@ -448,9 +448,19 @@
               <FilePath>.\Player.cpp</FilePath>
             </File>
             <File>
-              <FileName>Sprite_Init.cpp</FileName>
+              <FileName>Barrier.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Sprite_Init.cpp</FilePath>
+              <FilePath>.\Barrier.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Grid.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Grid.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Sprites.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sprites.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -523,9 +533,19 @@
               <FilePath>.\Physics.h</FilePath>
             </File>
             <File>
-              <FileName>Sprite_Init.h</FileName>
+              <FileName>Barrier.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Sprite_Init.h</FilePath>
+              <FilePath>.\Barrier.h</FilePath>
+            </File>
+            <File>
+              <FileName>Grid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Grid.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sprites.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sprites.h</FilePath>
             </File>
           </Files>
         </Group>
