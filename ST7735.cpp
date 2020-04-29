@@ -1693,7 +1693,7 @@ void ST7735_SetTextColor(uint16_t color){
 // Inputs: none
 // Outputs: none
 void Output_Init(void){
-  ST7735_InitR(INITR_REDTAB);
+  ST7735_InitR(INITR_GREENTAB);
   ST7735_FillScreen(0);                 // set screen to black
 }
 

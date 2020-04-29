@@ -60,25 +60,37 @@
 #include "UART.h"
 #include "Timer0.h"
 #include "Timer1.h"
+#include "Player.h"
+
+extern "C" void DisableInterrupts(void);
+extern "C" void EnableInterrupts(void);
+extern "C" void SysTick_Handler(void);
 
 #define FallTest
 
 #ifdef FallTest
+Player* fireboy;
 void tickUpdate() {
-	
+	fireboy->update(); 
 }
 
 int main(void) {
+	PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
+  Random_Init(1);
+  Output_Init();
+	ST7735_SetRotation(1); 
+	fireboy = new Player(1, SmallEnemy20pointB, SmallEnemy20pointB, SmallEnemy20pointB, 16, 10); 
 	Timer0_Init(&tickUpdate, 0x3D08FF);
+	EnableInterrupts(); 
+	while(true) {
+		//ST7735_FillScreen(0x0000);
+		fireboy->drawMe();
+	}
 }
 #endif
 
 #ifdef OGcode
 SlidePot my(1500,0);
-
-extern "C" void DisableInterrupts(void);
-extern "C" void EnableInterrupts(void);
-extern "C" void SysTick_Handler(void);
 
 // Creating a struct for the Sprite.
 typedef enum {dead,alive} status_t;
