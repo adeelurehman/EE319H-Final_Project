@@ -4,5 +4,8 @@
 #define __DAC_H__
 #include <stdint.h>
 
+void DAC_Init(void);
+
+void DAC_Out(uint8_t data);
 
 #endif
