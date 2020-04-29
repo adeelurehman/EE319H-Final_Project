@@ -14,6 +14,33 @@
 // measures from PD2, analog channel 5
 void ADC_Init(void){ 
 // lab 8
+	SYSCTL_RCGCADC_R |= 0x01; //enable ADC0
+	SYSCTL_RCGCGPIO_R |= 1<<3; //enable Port D
+	
+	__nop();
+	__nop(); //wait for clock
+	
+	GPIO_PORTD_DIR_R |= 1<<2; 
+	GPIO_PORTD_AFSEL_R |= 1<<2;
+	GPIO_PORTD_DEN_R &= ~(1<<2); 
+	GPIO_PORTD_AMSEL_R |= 1<<2; 
+	
+	ADC0_PC_R &= ~(0x0F);
+	ADC0_PC_R |= 0x01; 
+	ADC0_SSPRI_R = 0x0123; 
+	ADC0_ACTSS_R &= ~0x0008; 
+	ADC0_EMUX_R &= ~0xF000;
+	ADC0_SSMUX3_R &= ~0x000F;
+	ADC0_SSMUX3_R += 5;
+	ADC0_SSCTL3_R = 0x0006;
+	ADC0_IM_R &= ~0x0008;
+	ADC0_ACTSS_R |= 0x0008;
+	
+	#ifdef Hardware
+	ADC0_SAC_R = 0x06; 
+	#endif
+	
+	//copied from textbook
 }
 
 //------------ADCIn------------
@@ -24,7 +51,12 @@ void ADC_Init(void){
 uint32_t ADC_In(void){  
 
 // lab 8
-  return 0; // remove this, replace with real code
+	uint32_t result; 
+	ADC0_PSSI_R = 0x0008;
+	while((ADC0_RIS_R&0x08)==0){};
+	result = ADC0_SSFIFO3_R&0xFFF;
+	ADC0_ISC_R = 0x0008;
+	return result; 
 }
 
 // constructor, invoked on creation of class
@@ -43,11 +75,16 @@ uint32_t SlidePot::Convert(uint32_t n){
 
 void SlidePot::Sync(void){
 // lab 8
+// 1) wait for semaphore flag to be nonzero
+// 2) set semaphore flag to 0
+	while(flag==0);
+	flag = 0;
 }
 
 uint32_t SlidePot::ADCsample(void){ // return ADC sample value (0 to 4095)
 
-  return 0;
+  // return last calculated ADC sample
+  return data; // replace this with solution
 }
 
 uint32_t SlidePot::Distance(void){  // return distance value (0 to 2000), 0.001cm
