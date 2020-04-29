@@ -2,10 +2,10 @@
 #include "ST7735.h"
 #include "Physics.h"
 
-Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height) {
+Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y) {
 	this->type = type; 
-	Xpos = 50;
-	Ypos = 50;
+	Xpos = x;
+	Ypos = y;
 	facingRightTexture = rightTxtr;
 	facingLeftTexture = leftTxtr;
 	facingForwardTexture = forwardTxtr;

@@ -447,6 +447,11 @@
               <FileType>8</FileType>
               <FilePath>.\Player.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Sprite_Init.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Sprite_Init.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -516,6 +521,11 @@
               <FileName>Physics.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Physics.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sprite_Init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sprite_Init.h</FilePath>
             </File>
           </Files>
         </Group>

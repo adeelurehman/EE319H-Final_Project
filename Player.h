@@ -1,3 +1,6 @@
+#ifndef PlayerClass
+#define PlayerClass
+
 class Player {
 public:
 	const unsigned short* facingRightTexture;
@@ -13,8 +16,10 @@ public:
 	
 	int type; //0 for water, 1 for fire
 	
-	Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height);
+	Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y);
 	
 	void update(); 
 	void drawMe();
 };
+
+#endif

@@ -61,6 +61,7 @@
 #include "Timer0.h"
 #include "Timer1.h"
 #include "Player.h"
+#include "Sprite_Init.h"
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
@@ -69,9 +70,13 @@ extern "C" void SysTick_Handler(void);
 #define FallTest
 
 #ifdef FallTest
+
 Player* fireboy;
+Player* watergirl;
+
 void tickUpdate() {
 	fireboy->update(); 
+	watergirl->update();
 }
 
 int main(void) {
@@ -79,12 +84,14 @@ int main(void) {
   Random_Init(1);
   Output_Init();
 	ST7735_SetRotation(1); 
-	fireboy = new Player(1, SmallEnemy20pointB, SmallEnemy20pointB, SmallEnemy20pointB, 16, 10); 
+	fireboy = Fireboy_Init(100,50);
+	watergirl = Watergirl_Init(50,50); 
 	Timer0_Init(&tickUpdate, 0x3D08FF);
 	EnableInterrupts(); 
 	while(true) {
-		//ST7735_FillScreen(0x0000);
+		ST7735_FillScreen(0x0000); 
 		fireboy->drawMe();
+		watergirl->drawMe(); 
 	}
 }
 #endif
