@@ -102,12 +102,14 @@ int main(void) {
 
 #ifdef BarrierTest
 int main() {
-	int x = 50;
-	int y = 50;
-	int w = 5;
-	int h = 5;
-	volatile int test = floor.test(x,y,w,h);
-	test = test;
+	//int x = 50;
+	//int y = 50;
+	//int w = 5;
+	//int h = 5;
+	//volatile int test = floor.test(x,y,w,h);
+	//test = test;
+	Player* Fireboy = Fireboy_Init(60, 110);
+	Fireboy->update();
 }
 #endif
 

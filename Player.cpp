@@ -15,11 +15,32 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 }
 
 void Player::update() {
-	if (floor.test(Xpos+Xvel, Ypos+Yvel, width, height) ) {
+	int fail = 0;
+	int prog = 0;
+	for(int i = 0; i < 3; i++)
+	{
+		if (!levelOne[i].test(Xpos+Xvel, Ypos+Yvel, width, height))
+		{
+			fail = 1;
+			prog = i;
+		}
+	}
+	if(levelOne[prog].type == 0 && this->type != 0)
+	{
+		int dead = 1;
+	}
+	
+	if (levelOne[prog].test(Xpos+Xvel, Ypos+Yvel, width, height) ) {
 		Xpos += Xvel;
 		Ypos += Yvel;
 		Yvel += Y_GRAVITY;
 		Xvel += X_GRAVITY; 
+		
+//		if (floor.test(Xpos+Xvel, Ypos+Yvel, width, height) ) {
+//		Xpos += Xvel;
+//		Ypos += Yvel;
+//		Yvel += Y_GRAVITY;
+//		Xvel += X_GRAVITY; 
 	}
 }
 
