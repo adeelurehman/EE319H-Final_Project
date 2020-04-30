@@ -13,7 +13,3 @@ Player* Watergirl_Init(int x, int y) {
 void Player_Destroy(Player* temp) {
 	delete temp; 
 }
-
-void Floor_Init(int x, int y, int w, int h) {
-	//floor0 = new Barrier(x, y, w, h); 
-}

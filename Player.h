@@ -1,7 +1,10 @@
 #ifndef PlayerClass
 #define PlayerClass
 
-class Player {
+#include "Drawable.h"
+#include "queue"
+
+class Player: public Drawable {
 public:
 	const unsigned short* facingRightTexture;
 	const unsigned short* facingLeftTexture;
@@ -13,13 +16,16 @@ public:
 	int Ypos;
 	int Xvel;
 	int Yvel;
+
+	int prevX;
+	int prevY;
 	
 	int type; //0 for water, 1 for fire
 	
 	Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y);
 	
-	void update(); 
-	void drawMe();
+	void update(std::queue<Drawable*>* toDraw); 
+	virtual void drawMe();
 	void jump();
 };
 

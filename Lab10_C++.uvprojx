@@ -547,6 +547,11 @@
               <FileType>5</FileType>
               <FilePath>.\Sprites.h</FilePath>
             </File>
+            <File>
+              <FileName>Drawable.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drawable.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
