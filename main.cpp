@@ -108,7 +108,7 @@ int main() {
 	//int h = 5;
 	//volatile int test = floor.test(x,y,w,h);
 	//test = test;
-	Player* Fireboy = Fireboy_Init(60, 110);
+	Player* Fireboy = Fireboy_Init(0,0);
 	Fireboy->update();
 }
 #endif
