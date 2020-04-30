@@ -7,8 +7,9 @@ public:
 	int y;
 	int w;
 	int h;
+	int type;
 	
-	Barrier(int x, int y, int w, int h);
+	Barrier(int x, int y, int w, int h, int t);
 	void drawMe() const;
 
 	//calculates if passed rect overlaps with self

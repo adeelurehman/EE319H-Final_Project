@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "Barrier.h"
 
-const Barrier floor = Barrier(0,110,160,18);
+const Barrier floor = Barrier(0,50,160,18,0);
 
 //returns pointer to fireboy
 //parms: coords for inital position
