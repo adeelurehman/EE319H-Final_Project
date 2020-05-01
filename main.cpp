@@ -63,10 +63,10 @@
 #include "Sprites.h"
 #include "Barrier.h"
 #include "Physics.h"
+#include "Systick.h" 
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
-extern "C" void SysTick_Handler(void);
 
 #define FallTest //Options: OGcode, FallTest, BarrierTest
 
@@ -87,8 +87,8 @@ int main(void) {
 	ST7735_SetRotation(1); 
 	fireboy = Fireboy_Init(100,50);
 	watergirl = Watergirl_Init(50,50); 
-	Timer0_Init(&tickUpdate, 0x3D08FF);
-	Timer0_Start(); 
+	SysTick_Init(&tickUpdate, 0x3D08FF);
+	SysTick_Start(); 
 	EnableInterrupts();
 
 	for (int i=0; i<3; i++) {
