@@ -89,11 +89,18 @@ int main(void) {
 	watergirl = Watergirl_Init(50,50); 
 	Timer0_Init(&tickUpdate, 0x3D08FF);
 	Timer0_Start(); 
-	EnableInterrupts(); 
+	EnableInterrupts();
+
+	for (int i=0; i<3; i++) {
+			levelOneB[i].drawMe(); 
+	}
+	
 	while(true) {
-		Purplefloor.drawMe();
 		fireboy->drawMe();
-		watergirl->drawMe(); 
+		watergirl->drawMe();
+		for (int i=0; i<4; i++) {
+			levelOneG[i].drawMe(); 
+		}
 	}
 }
 #endif
