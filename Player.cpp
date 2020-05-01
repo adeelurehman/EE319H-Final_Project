@@ -60,7 +60,7 @@ void Player::update() {
 	}
 	if(fail == 1)
 	{
-		Ypos = levelOneB[progB].y;
+		Ypos = levelOneB[progB].y-height;
 		Yvel = 0;
 	}
 	else{
