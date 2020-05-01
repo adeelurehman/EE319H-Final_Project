@@ -2,6 +2,8 @@
 #include "stdint.h"
 #include "inc/tm4c123gh6pm.h"
 
+extern "C" void SysTick_Handler(void);
+
 void (*PeriodicTask)(void);
 
 void SysTick_Init(void(*task)(void), uint32_t period) {
@@ -12,7 +14,7 @@ void SysTick_Init(void(*task)(void), uint32_t period) {
 	NVIC_ST_RELOAD_R = period;
 }
 
-void SysTick_Handler() {
+void SysTick_Handler(void) {
 	(*PeriodicTask)(); 
 }
 
