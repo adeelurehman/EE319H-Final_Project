@@ -462,6 +462,11 @@
               <FileType>8</FileType>
               <FilePath>.\Sprites.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Gem.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Gem.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
