@@ -107,10 +107,27 @@ int main(void) {
 #endif
 
 #ifdef ControlsTest
+void LEDInit() {
+	SYSCTL_RCGCGPIO_R |= 0x20;
+	__asm__ {
+		NOP
+		NOP
+	}
+	GPIO_PORTF_DIR_R |= 0x04;
+	GPIO_PORTF_DEN_R |= 0x04;
+}
+
 int main(void) {
 	PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
 	Controls_Init(0,0,0); 
-	while(true); 
+	LEDInit(); 
+	EnableInterrupts(); 
+	while(true) {
+		int x = GPIO_PORTE_DATA_R;
+		x = GPIO_PORTE_DATA_R; 
+		int y = 3;
+		y++; 
+	}
 }
 #endif
 
