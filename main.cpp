@@ -64,11 +64,12 @@
 #include "Barrier.h"
 #include "Physics.h"
 #include "Systick.h" 
+#include "Controls.h" 
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
 
-#define FallTest //Options: OGcode, FallTest, BarrierTest
+#define ControlsTest //Options: OGcode, FallTest, BarrierTest, drawlevel0
 
 #ifdef FallTest
 
@@ -89,8 +90,8 @@ int main(void) {
 	watergirl = Watergirl_Init(50,50); 
 	SysTick_Init(&tickUpdate, 0x3D08FF);
 	SysTick_Start(); 
+	Controls_Init(0,0,0); 
 	EnableInterrupts();
-
 	for (int i=0; i<3; i++) {
 			levelOneB[i].drawMe(); 
 	}
@@ -102,6 +103,14 @@ int main(void) {
 			levelOneG[i].drawMe(); 
 		}
 	}
+}
+#endif
+
+#ifdef ControlsTest
+int main(void) {
+	PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
+	Controls_Init(0,0,0); 
+	while(true); 
 }
 #endif
 

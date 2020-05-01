@@ -477,6 +477,11 @@
               <FileType>8</FileType>
               <FilePath>.\Systick.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Controls.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Controls.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -581,6 +586,11 @@
               <FileName>Systick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Systick.h</FilePath>
+            </File>
+            <File>
+              <FileName>Controls.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Controls.h</FilePath>
             </File>
           </Files>
         </Group>
