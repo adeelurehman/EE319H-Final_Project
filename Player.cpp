@@ -19,6 +19,19 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 }
 
 void Player::update() {
+	//button collision
+	for(int i = 0; i < 2; i++)
+	{
+		if (!levelOneButton[i].testButton(Xpos+Xvel, Ypos+Yvel, width, height))
+		{
+			levelOneButton[i].pressed();
+		}else{
+			levelOneButton[i].released();
+		}
+		//todo Moving Platform update
+	}
+	
+	
 	//gem collision
 	int progG = 0;
 	for(int i = 0; i < 4; i++)
@@ -27,12 +40,11 @@ void Player::update() {
 		{
 			if(this->type == levelOneG[i].type)
 			{
-			levelOneG[i].collected();
-			progG = i;
+				levelOneG[i].collected();
+				progG = i;
 			}
 		}
 	}
-	
 	
 	//barrier collision
 	int fail = 0;
@@ -51,7 +63,7 @@ void Player::update() {
 	}
 	if(fail == 1)
 	{
-		Ypos = levelOneB[progB].y;
+		Ypos = levelOneB[progB].y-height;
 		Yvel = 0;
 	}
 	else{
