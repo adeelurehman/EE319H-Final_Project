@@ -324,7 +324,7 @@
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>1</uC99>
+            <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
@@ -335,7 +335,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>--cpp11</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
@@ -443,9 +443,9 @@
               <FilePath>.\FIFO.cpp</FilePath>
             </File>
             <File>
-              <FileName>Player.cpp</FileName>
+              <FileName>Grid.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Player.cpp</FilePath>
+              <FilePath>.\Grid.cpp</FilePath>
             </File>
             <File>
               <FileName>Barrier.cpp</FileName>
@@ -453,9 +453,9 @@
               <FilePath>.\Barrier.cpp</FilePath>
             </File>
             <File>
-              <FileName>Grid.cpp</FileName>
+              <FileName>Player.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Grid.cpp</FilePath>
+              <FilePath>.\Player.cpp</FilePath>
             </File>
             <File>
               <FileName>Sprites.cpp</FileName>
@@ -466,93 +466,6 @@
         </Group>
         <Group>
           <GroupName>Include</GroupName>
-          <Files>
-            <File>
-              <FileName>DAC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\DAC.h</FilePath>
-            </File>
-            <File>
-              <FileName>FIFO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\FIFO.h</FilePath>
-            </File>
-            <File>
-              <FileName>Images.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Images.h</FilePath>
-            </File>
-            <File>
-              <FileName>PLL.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\PLL.h</FilePath>
-            </File>
-            <File>
-              <FileName>random.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\random.h</FilePath>
-            </File>
-            <File>
-              <FileName>SlidePot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SlidePot.h</FilePath>
-            </File>
-            <File>
-              <FileName>Sound.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sound.h</FilePath>
-            </File>
-            <File>
-              <FileName>ST7735.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ST7735.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer0.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Timer0.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Timer1.h</FilePath>
-            </File>
-            <File>
-              <FileName>UART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\UART.h</FilePath>
-            </File>
-            <File>
-              <FileName>Player.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Player.h</FilePath>
-            </File>
-            <File>
-              <FileName>Physics.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Physics.h</FilePath>
-            </File>
-            <File>
-              <FileName>Barrier.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Barrier.h</FilePath>
-            </File>
-            <File>
-              <FileName>Grid.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Grid.h</FilePath>
-            </File>
-            <File>
-              <FileName>Sprites.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Sprites.h</FilePath>
-            </File>
-            <File>
-              <FileName>Drawable.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Drawable.h</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

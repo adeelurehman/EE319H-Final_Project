@@ -2,7 +2,6 @@
 #define PlayerClass
 
 #include "Drawable.h"
-#include "queue"
 
 class Player: public Drawable {
 public:
@@ -24,8 +23,9 @@ public:
 	
 	Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y);
 	
-	void update(std::queue<Drawable*>* toDraw); 
-	virtual void drawMe();
+	void update(); 
+	virtual void drawMe(); 
+	virtual void eraseMe(); 
 	void jump();
 };
 

@@ -1124,6 +1124,29 @@ void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, i
   deselect();
 }
 
+//------------ST7735_DrawBitmapNormal------------
+// Displays a 16-bit color BMP image.  A bitmap file that is created
+// by a PC image processing program has a header and may be padded
+// with dummy columns so the data have four byte alignment.  This
+// function assumes that all of that has been stripped out, and the
+// array image[] has one 16-bit halfword for each pixel to be
+// displayed on the screen (encoded in reverse order, which is
+// standard for bitmap files).  An array can be created in this
+// format from a 24-bit-per-pixel .bmp file using the associated
+// converter program.
+// (x,y) is the screen location of the upper left corner of BMP image
+// Requires (11 + 2*w*h) bytes of transmission (assuming image fully on screen)
+// Input: x     horizontal position of the bottom left corner of the image, columns from the left edge
+//        y     vertical position of the bottom left corner of the image, rows from the top edge
+//        image pointer to a 16-bit color BMP image
+//        w     number of pixels wide
+//        h     number of pixels tall
+// Output: none
+// Must be less than or equal to 128 pixels wide by 160 pixels high
+void ST7735_DrawBitmapNormal(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h) {
+	ST7735_DrawBitmap(x, y+h-1, image, w, h); 
+}
+
 
 //------------ST7735_DrawCharS------------
 // Simple character draw function.  This is the same function from

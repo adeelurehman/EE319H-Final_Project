@@ -50,7 +50,6 @@
 // Gnd (pin 1) connected to ground
 
 #include <stdint.h>
-//#include <queue>
 #include "inc/tm4c123gh6pm.h"
 #include "ST7735.h"
 #include "Random.h"
@@ -60,10 +59,10 @@
 #include "UART.h"
 #include "Timer0.h"
 #include "Timer1.h"
-//#include "Player.h"
-//#include "Sprites.h"
-//#include "Barrier.h"
-//#include "Physics.h"
+#include "Player.h"
+#include "Sprites.h"
+#include "Barrier.h"
+#include "Physics.h"
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
@@ -73,32 +72,28 @@ extern "C" void SysTick_Handler(void);
 
 #ifdef FallTest
 
-//std::queue<Drawable*>* toDraw; 
-//Player* fireboy;
-//Player* watergirl;
+Player* fireboy;
+Player* watergirl;
 
 void tickUpdate() {
-//	fireboy->update(toDraw); 
-//	watergirl->update(toDraw);
+	fireboy->update(); 	
+	watergirl->update();
 }
 
 int main(void) {
 	PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
-//  Random_Init(1);
+  Random_Init(1);
   Output_Init();
-//	ST7735_SetRotation(1); 
-//	fireboy = Fireboy_Init(100,50);
-//	watergirl = Watergirl_Init(50,50); 
-//	Timer0_Init(&tickUpdate, 0x3D08FF);
-//	Timer0_Start(); 
-//	EnableInterrupts(); 
-	//toDraw = new std::queue<Drawable*>();
+	ST7735_SetRotation(1); 
+	fireboy = Fireboy_Init(100,50);
+	watergirl = Watergirl_Init(50,50); 
+	Timer0_Init(&tickUpdate, 0x3D08FF);
+	Timer0_Start(); 
+	EnableInterrupts(); 
 	while(true) {
-		ST7735_FillScreen(0x0000); 
-		//Purplefloor.drawMe();
-		//Drawable* temp = toDraw->front(); 
-		//temp->drawMe();
-		//toDraw->pop();
+		Purplefloor.drawMe();
+		fireboy->drawMe();
+		watergirl->drawMe(); 
 	}
 }
 #endif

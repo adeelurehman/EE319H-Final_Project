@@ -2,7 +2,6 @@
 #include "ST7735.h"
 #include "Physics.h"
 #include "Sprites.h"
-#include "queue"
 
 Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y) {
 	this->type = type; 
@@ -14,36 +13,40 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 	this->width = width;
 	this->height = height; 
 	
-	prevX = -1;
-	prevY = -1;
+	prevX = -50;
+	prevY = -50;
 }
 
-void Player::update(std::queue<Drawable*>* toDraw) {
+void Player::update() {
 	if (Purplefloor.test(Xpos+Xvel, Ypos+Yvel, width, height) ) {
 		Xpos += Xvel;
 		Ypos += Yvel;
 		Yvel += Y_GRAVITY;
 		Xvel += X_GRAVITY; 
-		
-		if (prevX != Xpos || prevY != Ypos) {
-			toDraw->push(this); 
-		}
 	}
 }
 
 void Player::drawMe() {
-	if (Xvel > 0) {
-		ST7735_DrawBitmap(this->Xpos, this->Ypos, this->facingRightTexture, width, height);
-	}
-	else if (Xvel == 0) {
-		ST7735_DrawBitmap(this->Xpos, this->Ypos, this->facingForwardTexture, width, height);
-	}
-	else if (Xvel < 0) {
-		ST7735_DrawBitmap(this->Xpos, this->Ypos, this->facingLeftTexture, width, height);
-	}
+	if (prevX == Xpos && prevY==Ypos)
+		return;
 	
+	this->eraseMe();
 	prevX = Xpos;
 	prevY = Ypos; 
+	
+	if (Xvel > 0) {
+		ST7735_DrawBitmapNormal(this->Xpos, this->Ypos, this->facingRightTexture, width, height);
+	}
+	else if (Xvel == 0) {
+		ST7735_DrawBitmapNormal(this->Xpos, this->Ypos, this->facingForwardTexture, width, height);
+	}
+	else if (Xvel < 0) {
+		ST7735_DrawBitmapNormal(this->Xpos, this->Ypos, this->facingLeftTexture, width, height);
+	}
+}
+
+void Player::eraseMe() {
+	ST7735_FillRect(prevX, prevY, width, height, BACKGROUND_COLOR);
 }
 
 void Player::jump() {
@@ -51,3 +54,4 @@ void Player::jump() {
 		Yvel = JUMP_VELOCITY;
 	}
 }
+
