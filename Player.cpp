@@ -67,7 +67,7 @@ void Player::update() {
 	int progVP = 0;
 	for(int i = 0; i < 1; i++)
 	{
-		if (!levelOneVP[i].testVP(Xpos+Xvel, Ypos+Yvel, width, height))
+		if (!levelOneVP.testVP(Xpos+Xvel, Ypos+Yvel, width, height))
 		{
 			failVP = 1;
 			progVP = i;

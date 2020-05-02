@@ -7,6 +7,8 @@ public:
 	int y;
 	int w;
 	int h;
+	int maxy;
+	int miny;
 	
 	VertPlat(int x, int y, int w, int h);
 	void drawMe() const;
@@ -15,6 +17,7 @@ public:
 	//false for overlap
 	//true for no overlap
 	bool testVP(int x, int y, int w, int h) const;
+	void updateVP();
 };
 
 #endif
