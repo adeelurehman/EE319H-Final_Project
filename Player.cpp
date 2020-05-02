@@ -19,32 +19,32 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 }
 
 void Player::update() {
-	//button collision
-	for(int i = 0; i < 2; i++)
-	{
-		if (!levelOneButton[i].testButton(Xpos+Xvel, Ypos+Yvel, width, height))
-		{
-			levelOneButton[i].pressed();
-		}else{
-			levelOneButton[i].released();
-		}
-		//todo Moving Platform update
-	}
+	//button collision        has its own function now
+//	for(int i = 0; i < 2; i++)
+//	{
+//		if (!levelOneButton[i].testButton(Xpos+Xvel, Ypos+Yvel, width, height))
+//		{
+//			levelOneButton[i].pressed();
+//		}else{
+//			levelOneButton[i].released();
+//		}
+//		//todo Moving Platform update
+//	}
 	
 	
-	//gem collision
-	int progG = 0;
-	for(int i = 0; i < 4; i++)
-	{
-		if (!levelOneG[i].testG(Xpos+Xvel, Ypos+Yvel, width, height))
-		{
-			if(this->type == levelOneG[i].type)
-			{
-				levelOneG[i].collected();
-				progG = i;
-			}
-		}
-	}
+	//gem collision     has its own function now
+//	int progG = 0;
+//	for(int i = 0; i < 4; i++)
+//	{
+//		if (!levelOneG[i].testG(Xpos+Xvel, Ypos+Yvel, width, height))
+//		{
+//			if(this->type == levelOneG[i].type)
+//			{
+//				levelOneG[i].collected();
+//				progG = i;
+//			}
+//		}
+//	}
 	
 	//barrier collision
 	int fail = 0;
@@ -62,6 +62,7 @@ void Player::update() {
 		int dead = 1; //todo dead function
 	}
 	
+	//VP collision
 	int failVP = 0;
 	int progVP = 0;
 	for(int i = 0; i < 1; i++)
