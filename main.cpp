@@ -69,9 +69,9 @@
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
 
-#define ControlsTest //Options: OGcode, FallTest, BarrierTest, drawlevel0
+#define MoveTest //Options: OGcode, FallTest, BarrierTest, drawlevel0
 
-#ifdef FallTest
+#ifdef MoveTest
 
 Player* fireboy;
 Player* watergirl;
