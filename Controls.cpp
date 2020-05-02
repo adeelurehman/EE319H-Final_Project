@@ -18,9 +18,9 @@ void (*Fire_Move)(bool pressedRight, bool pressedLeft);
 void (*Fire_Jump)(bool pressed);
 void (*Water_Jump)(bool pressed);
 
-void Controls_Init( void (*Fire_Move)(bool pressedRight, bool pressedLeft), 
-										void (*Fire_Jump)(bool pressed), 
-										void (*Water_Jump)(bool pressed) ) {
+void Controls_Init( void (*firemove)(bool pressedRight, bool pressedLeft), 
+										void (*firejump)(bool pressed), 
+										void (*waterjump)(bool pressed) ) {
 	SYSCTL_RCGCGPIO_R |= 0x10;
 	__nop();
 	__nop(); 
@@ -34,15 +34,17 @@ void Controls_Init( void (*Fire_Move)(bool pressedRight, bool pressedLeft),
 	GPIO_PORTE_IBE_R |= 0x0F;
 	GPIO_PORTE_IM_R |= 0x0F;
 	NVIC_EN0_R |= 0x10; 
+											
+	Fire_Move = firemove; 
+	Fire_Jump = firejump;
+	Water_Jump = waterjump; 
 }
 
-int count;
 void GPIOE_Handler(void) {
 	GPIO_PORTE_ICR_R = 0x0F; 
-	GPIO_PORTF_DATA_R = 0x04;
-	uint8_t data = ~(GPIO_PORTE_DATA_R & 0x0F);
-	count++; 
-	//(*Fire_Move)(data&0x01, data&0x02);
-	//(*Fire_Jump)(data&0x04);
+	//int d = GPIO_PORTE_DATA_R; 
+	volatile uint32_t data = ~(GPIO_PORTE_DATA_R & 0x0F);
+	(*Fire_Move)(data&0x01, data&0x02);
+	(*Fire_Jump)(data&0x04);
 	//(*Water_Jump)(data&0x08); 
 }

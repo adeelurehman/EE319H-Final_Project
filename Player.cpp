@@ -105,8 +105,7 @@ void Player::eraseMe() {
 }
 
 void Player::jump() {
-	if (Yvel==0) {
+	//if (Yvel==0) {
 		Yvel = JUMP_VELOCITY;
-	}
+	//}
 }
-
