@@ -15,6 +15,6 @@ void Barrier::drawMe() const {
 
 //this is rectangle 1, parm is rectangle 2
 bool Barrier::test(int x, int y, int w, int h) const {
-	return !(this->x < x+w && this->x+this->w > x &&
-    this->y < y+h && this->y+this->h > y);
+	return !(this->x+1 <= x+w && this->x+this->w >= x+1 &&
+    this->y+1 <= y+h && this->y+this->h >= y+1);
 }
