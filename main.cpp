@@ -76,6 +76,10 @@ extern "C" void EnableInterrupts(void);
 Player* fireboy;
 Player* watergirl;
 
+void moveWater(uint8_t sign) {
+	watergirl->Xvel = sign * PLAYER_SPEED; 
+}
+
 void jumpWater(bool jump) {
 	if (jump)
 		watergirl->jump();
@@ -98,6 +102,7 @@ void moveFire(bool right, bool left) {
 }
 
 void tickUpdate() {
+	SlidePot_Update(); 
 	fireboy->update(); 	
 	watergirl->update();
 }
@@ -111,7 +116,7 @@ int main(void) {
 	watergirl = Watergirl_Init(50,50); 
 	SysTick_Init(&tickUpdate, 0x3D08FF);
 	SysTick_Start(); 
-	Controls_Init(&moveFire,&jumpFire,&jumpWater,0); 
+	Controls_Init(&moveFire,&jumpFire,&jumpWater,&moveWater); 
 	EnableInterrupts();
 	for (int i=0; i<3; i++) {
 			levelOneB[i].drawMe(); 
