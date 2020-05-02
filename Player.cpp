@@ -63,8 +63,20 @@ void Player::update() {
 	}
 	if(fail == 1)
 	{
-		Ypos = levelOneB[progB].y-height;
-		Yvel = 0;
+		if(this->Ypos+this->height > levelOneB[progB].y)
+		{
+			Ypos = levelOneB[progB].y-height;
+			Yvel = 0;
+			Xpos += Xvel;
+		}
+		else
+		{
+			Xpos = levelOneB[progB].x-width;
+			Xvel = 0;
+			Ypos += Yvel;
+			Yvel += Y_GRAVITY;
+		}
+			
 	}
 	else{
 		Xpos += Xvel;
