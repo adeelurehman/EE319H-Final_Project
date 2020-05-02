@@ -3,6 +3,7 @@
 #include "Gem.h"
 #include "Sprites.h"
 #include "Button.h"
+#include "VerticalMovingPlat.h"
 
 int gemCollision(Player* p)
 {
@@ -31,6 +32,6 @@ void buttonCollision(Player* p)
 		}else{
 			levelOneButton[i].released();
 		}
-		//todo Moving Platform update
+		levelOneVP.updateVP();
 	}
 }	
