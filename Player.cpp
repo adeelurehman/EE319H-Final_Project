@@ -61,14 +61,31 @@ void Player::update() {
 	{
 		int dead = 1; //todo dead function
 	}
-	if(fail == 1)
+	
+	int failVP = 0;
+	int progVP = 0;
+	for(int i = 0; i < 1; i++)
+	{
+		if (!levelOneVP[i].testVP(Xpos+Xvel, Ypos+Yvel, width, height))
+		{
+			failVP = 1;
+			progVP = i;
+		}
+	}
+	if(failVP == 1)
+	{
+		Ypos = levelOneB[progB].y-height;
+		Yvel = 0;
+		Xpos += Xvel;
+	}
+	else if(fail == 1)
 	{
 		Ypos = levelOneB[progB].y-height;
 		Yvel = 0;
 		Xpos += Xvel;
 	//	if(fail == 1)
 	//{
-	//	if(this->Ypos+this->height > levelOneB[progB].y)
+	//	if(this->Ypos+this->height >= levelOneB[progB].y)
 	//	{
 	//		Ypos = levelOneB[progB].y-height;
 	//		Yvel = 0;
