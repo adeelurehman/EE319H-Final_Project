@@ -119,6 +119,10 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>ARMRTXEVENTFLAGS</Key>
           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
         </SetRegEntry>
@@ -160,7 +164,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDARM</Key>
-          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(9108=1542,481,1717,713,1)(9106=-1,-1,-1,-1,0)(9104=-1,-1,-1,-1,0)(9107=678,346,1131,617,1)(9109=-1,-1,-1,-1,0)(9102=884,446,1280,720,0)</Name>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)(9108=1273,507,1448,739,1)(9106=-1,-1,-1,-1,0)(9104=-1,-1,-1,-1,0)(9107=678,346,1131,617,1)(9109=-1,-1,-1,-1,0)(9102=884,446,1280,720,0)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -172,9 +176,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>34</LineNumber>
+          <LineNumber>88</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>8344</Address>
+          <Address>8868</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -183,7 +187,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Controls.cpp</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Lab10_C__\Controls.cpp\34</Expression>
+          <Expression>\\Lab10_C__\Controls.cpp\88</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -191,6 +195,26 @@
           <count>0</count>
           <WinNumber>1</WinNumber>
           <ItemText>bill</ItemText>
+        </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>x</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>count</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>fireboy</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>watergirl</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

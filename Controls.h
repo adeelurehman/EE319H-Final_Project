@@ -9,7 +9,7 @@ extern "C" void GPIOE_Handler(void);
 void Controls_Init( void (*firemove)(bool pressedRight, bool pressedLeft), 
 										void (*firejump)(bool pressed), 
 										void (*waterjump)(bool pressed),
-										void (*watermove)(uint8_t sign) );
+										void (*watermove)(int8_t sign) );
 
 void GPIOE_Handler(void); 
 										

@@ -76,7 +76,7 @@ extern "C" void EnableInterrupts(void);
 Player* fireboy;
 Player* watergirl;
 
-void moveWater(uint8_t sign) {
+void moveWater(int8_t sign) {
 	watergirl->Xvel = sign * PLAYER_SPEED; 
 }
 
