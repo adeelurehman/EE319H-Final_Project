@@ -18,7 +18,10 @@ bool Gem::testG(int x, int y, int w, int h) const {
 
 void Gem::drawMe() 
 {
-	ST7735_DrawBitmap(this->x, this->y, this->gemTexture, w, h);
+	if(this->collect == 0)
+	{
+		ST7735_DrawBitmap(this->x, this->y, this->gemTexture, w, h);
+	}
 }
 
 void Gem::collected()
