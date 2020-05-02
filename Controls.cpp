@@ -17,12 +17,12 @@ PD2: Water Move
 void (*Fire_Move)(bool pressedRight, bool pressedLeft);
 void (*Fire_Jump)(bool pressed);
 void (*Water_Jump)(bool pressed);
-void (*Water_Move)(uint8_t sign); 
+void (*Water_Move)(int8_t sign); 
 
 void Controls_Init( void (*firemove)(bool pressedRight, bool pressedLeft), 
 										void (*firejump)(bool pressed), 
 										void (*waterjump)(bool pressed),
-										void (*watermove)(uint8_t sign) ) {
+										void (*watermove)(int8_t sign) ) {
 										
 											//portE GPIO init
 	SYSCTL_RCGCGPIO_R |= 0x10;
@@ -78,7 +78,7 @@ void GPIOE_Handler(void) {
 }
 
 void SlidePot_Update() {
-	uint32_t result; 
+	int result; 
 	ADC0_PSSI_R = 0x0008;
 	while((ADC0_RIS_R&0x08)==0){};
 	result = ADC0_SSFIFO3_R&0xFFF;
