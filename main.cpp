@@ -76,6 +76,11 @@ extern "C" void EnableInterrupts(void);
 Player* fireboy;
 Player* watergirl;
 
+void jumpWater(bool jump) {
+	if (jump)
+		watergirl->jump();
+}
+
 void jumpFire(bool jump) {
 	if (jump)
 		fireboy->jump(); 
@@ -106,7 +111,7 @@ int main(void) {
 	watergirl = Watergirl_Init(50,50); 
 	SysTick_Init(&tickUpdate, 0x3D08FF);
 	SysTick_Start(); 
-	Controls_Init(&moveFire,&jumpFire,0); 
+	Controls_Init(&moveFire,&jumpFire,&jumpWater); 
 	EnableInterrupts();
 	for (int i=0; i<3; i++) {
 			levelOneB[i].drawMe(); 
@@ -118,8 +123,6 @@ int main(void) {
 		for (int i=0; i<4; i++) {
 			levelOneG[i].drawMe(); 
 		}
-		ST7735_SetCursor(0,0);
-		ST7735_OutChar(fireboy->Yvel + '0');
 	}
 }
 #endif
