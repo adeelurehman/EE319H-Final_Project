@@ -118,7 +118,7 @@ int main(void) {
 	SysTick_Start(); 
 	Controls_Init(&moveFire,&jumpFire,&jumpWater,&moveWater); 
 	EnableInterrupts();
-	for (int i=0; i<3; i++) {
+	for (int i=0; i<33; i++) {
 			levelOneB[i].drawMe(); 
 	}
 	

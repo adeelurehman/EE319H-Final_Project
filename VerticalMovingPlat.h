@@ -18,6 +18,7 @@ public:
 	//true for no overlap
 	bool testVP(int x, int y, int w, int h) const;
 	void updateVP();
+	void eraseMe() const;
 };
 
 #endif
