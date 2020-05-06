@@ -2,6 +2,7 @@
 #include "ST7735.h"
 #include "Sprites.h"
 
+
 Gem::Gem(int x, int y, int w, int h, int t) {
 	this->x = x;
 	this->y = y;
@@ -26,5 +27,8 @@ void Gem::drawMe()
 
 void Gem::collected()
 {
-	this->collect = 1;
+	if(collect == 0)
+	{
+		this->collect = 1;
+	}
 }

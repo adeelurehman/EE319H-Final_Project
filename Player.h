@@ -15,6 +15,7 @@ public:
 	int Ypos;
 	int Xvel;
 	int Yvel;
+	int gemCount;
 
 	int prevX;
 	int prevY;

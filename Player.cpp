@@ -13,6 +13,7 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 	facingForwardTexture = forwardTxtr;
 	this->width = width;
 	this->height = height; 
+	gemCount = 0;
 	
 	prevX = -50;
 	prevY = -50;

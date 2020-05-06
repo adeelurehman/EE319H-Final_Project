@@ -9,8 +9,23 @@ Barrier::Barrier(int x, int y, int w, int h, int t) {
 	this->type = t;
 }
 
-void Barrier::drawMe() const {
-	ST7735_FillRect(x, y, w, h, 0xA01F);
+void Barrier::drawMe() const {//put ifs based on type to change color of barrier
+	if(this->type == 2)
+	{
+		ST7735_FillRect(x, y, w, h, 0xA01F);
+	}
+	if(this->type == 0)
+	{
+		ST7735_FillRect(x, y, w, h, 0xA01F);
+	}
+	if(this->type == 1)
+	{
+		ST7735_FillRect(x, y, w, h, 0xA01F);
+	}
+	if(this->type == 3)
+	{
+		ST7735_FillRect(x, y, w, h, 0xA01F);
+	}
 }
 
 //this is rectangle 1, parm is rectangle 2

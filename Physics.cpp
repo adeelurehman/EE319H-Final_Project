@@ -12,9 +12,10 @@ int gemCollision(Player* p)
 	{
 		if (!levelOneG[i].testG(p->Xpos+p->Xvel, p->Ypos+p->Yvel, p->width, p->height))
 		{
-			if(p->type == levelOneG[i].type)
-			{
+			if(p->type == levelOneG[i].type && levelOneG[i].collect == 0)
+			{				
 				levelOneG[i].collected();
+				p->gemCount++;
 				return i;
 			}
 		}
