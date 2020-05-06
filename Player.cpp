@@ -20,6 +20,7 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 }
 
 void Player::update() {
+	buttonCollision(this);
 	//button collision        has its own function now
 //	for(int i = 0; i < 2; i++)
 //	{
@@ -32,7 +33,7 @@ void Player::update() {
 //		//todo Moving Platform update
 //	}
 	
-	
+	gemCollision(this);
 	//gem collision     has its own function now
 //	int progG = 0;
 //	for(int i = 0; i < 4; i++)
@@ -65,13 +66,11 @@ void Player::update() {
 	
 	//VP collision
 	int failVP = 0;
-	int progVP = 0;
 	for(int i = 0; i < 1; i++)
 	{
 		if (!levelOneVP.testVP(Xpos+Xvel, Ypos+Yvel, width, height))
 		{
 			failVP = 1;
-			progVP = i;
 		}
 	}
 	if(failVP == 1)
@@ -114,6 +113,7 @@ void Player::update() {
 //		Yvel += Y_GRAVITY;
 //		Xvel += X_GRAVITY; 
 //	}
+	endDoorCollision(this);
 }
 
 void Player::drawMe() {

@@ -4,8 +4,9 @@
 #include "Sprites.h"
 #include "Button.h"
 #include "VerticalMovingPlat.h"
+#include "ST7735.h"
 
-int gemCollision(Player* p)
+void gemCollision(Player* p)
 {
 	int progG = 0;
 	for(int i = 0; i < 4; i++)
@@ -16,11 +17,10 @@ int gemCollision(Player* p)
 			{				
 				levelOneG[i].collected();
 				p->gemCount++;
-				return i;
+				return;
 			}
 		}
 	}
-	return -1;
 }
 
 void buttonCollision(Player* p)
@@ -36,3 +36,26 @@ void buttonCollision(Player* p)
 		levelOneVP.updateVP();
 	}
 }	
+
+void endDoorCollision(Player* p)
+{
+	
+	for(int i = 0; i < 2; i++)
+	{
+		if (!levelOneEndDoor[i].testEndDoor(p->Xpos+p->Xvel, p->Ypos+p->Yvel, p->width, p->height))
+		{
+			if(p->type == levelOneEndDoor[i].type && levelOneEndDoor[i].gemsRequired == p->gemCount)
+			{				
+				//erase door center
+				ST7735_FillRect(levelOneEndDoor[i].x+1,levelOneEndDoor[i].y+1, levelOneEndDoor[i].w-2, levelOneEndDoor[i].h-1, BACKGROUND_COLOR);
+				
+				levelOneEndDoor[i].endFlag = 1;
+				return;
+			}else{
+				levelOneEndDoor[i].endFlag = 0;
+			}
+		}else{
+		levelOneEndDoor[i].endFlag = 0;
+		}
+	}
+}

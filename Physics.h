@@ -9,7 +9,8 @@
 #define PLAYER_SPEED 2
 
 
-int gemCollision(Player* p);
+void gemCollision(Player* p);
 void buttonCollision(Player* p);
+void endDoorCollision(Player* p);
 
 #endif

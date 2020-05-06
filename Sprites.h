@@ -6,6 +6,7 @@
 #include "Gem.h"
 #include "Button.h"
 #include "VerticalMovingPlat.h"
+#include "EndDoor.h"
 
 const Barrier levelOneB[33] = {Barrier(0,0,160,3,2), Barrier(3,26,117,3,2), Barrier(134,26,12,3,2), Barrier(123,39,10,3,1), 
 Barrier(147,39,10,3,0), Barrier(135,52,10,10,2), Barrier(116,62,41,3,2), Barrier(101,64,15,1,2), Barrier(93,62,8,3,2),
@@ -17,7 +18,7 @@ Barrier(63,50,30,2,0), Barrier(63,62,30,2,1), Barrier(0,3,3,122,2), Barrier(157,
 static Gem levelOneG[4] = {Gem(0,0,5,5,1), Gem(20,20,5,5,1), Gem(20,0,5,5,1), Gem(0,20,5,5,0)};
 static Button levelOneButton[2] = {Button(36,60,8,2,1), Button(24,83,8,2,1)}; //done
 static VertPlat levelOneVP = VertPlat(4,62,15,3); //done
-
+static EndDoor levelOneEndDoor[2] = {EndDoor(36,60,8,2,1), EndDoor(24,83,8,2,1)}; //done
 
 //returns pointer to fireboy
 //parms: coords for inital position
