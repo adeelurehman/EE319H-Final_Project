@@ -17,7 +17,7 @@ void EndDoor::drawMe() const {
 	{
 		ST7735_FillRect(x, y, w, 1, 0xFF08);
 		ST7735_FillRect(x, y+1, 1, h-1, 0xFF08);
-		ST7735_FillRect(x+w, y+1, 1, h-1, 0xFF08);
+		ST7735_FillRect(x+w-1, y+1, 1, h-1, 0xFF08);
 		ST7735_FillRect(x+1, y+1, x-1, h-1, 0xFA08);
 	}
 	if(this->type == 1)
