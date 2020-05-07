@@ -6,6 +6,8 @@
 #include "VerticalMovingPlat.h"
 #include "ST7735.h"
 
+int score = 0;
+
 void gemCollision(Player* p)
 {
 	int progG = 0;
@@ -17,6 +19,7 @@ void gemCollision(Player* p)
 			{				
 				levelOneG[i].collected();
 				p->gemCount++;
+				score+=100;
 				return;
 			}
 		}

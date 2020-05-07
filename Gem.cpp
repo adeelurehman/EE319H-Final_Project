@@ -32,6 +32,9 @@ void Gem::drawMe()
 	{
 		ST7735_DrawBitmap(this->x, this->y, this->gemTexture, w, h);
 	}
+	else{
+		ST7735_FillRect(x, y, w, h, 0x0000);
+	}
 }
 
 void Gem::collected()
