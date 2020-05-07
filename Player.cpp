@@ -51,7 +51,7 @@ void Player::update() {
 	//barrier collision
 	int fail = 0;
 	int progB = 0;
-	for(int i = 0; i < 3; i++)
+	for(int i = 0; i < 33; i++)
 	{
 		if (!levelOneB[i].test(Xpos+Xvel, Ypos+Yvel, width, height))
 		{
@@ -66,16 +66,14 @@ void Player::update() {
 	
 	//VP collision
 	int failVP = 0;
-	for(int i = 0; i < 1; i++)
+	if (!levelOneVP.testVP(Xpos+Xvel, Ypos+Yvel, width, height))
 	{
-		if (!levelOneVP.testVP(Xpos+Xvel, Ypos+Yvel, width, height))
-		{
-			failVP = 1;
-		}
+		failVP = 1;
 	}
+	
 	if(failVP == 1)
 	{
-		Ypos = levelOneB[progB].y-height;
+		Ypos = levelOneVP.y-height;
 		Yvel = 0;
 		Xpos += Xvel;
 	}
