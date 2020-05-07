@@ -112,8 +112,8 @@ int main(void) {
   Random_Init(1);
   Output_Init();
 	ST7735_SetRotation(1); 
-	fireboy = Fireboy_Init(100,50);
-	watergirl = Watergirl_Init(50,50); 
+	fireboy = Fireboy_Init(7,115);
+	watergirl = Watergirl_Init(21,115); 
 	SysTick_Init(&tickUpdate, 0x3D08FF);
 	SysTick_Start(); 
 	Controls_Init(&moveFire,&jumpFire,&jumpWater,&moveWater); 
