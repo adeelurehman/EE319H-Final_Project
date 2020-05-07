@@ -6,7 +6,7 @@
 #define Y_GRAVITY 1
 #define JUMP_VELOCITY -4
 #define BACKGROUND_COLOR 0x0000
-#define PLAYER_SPEED 2
+#define PLAYER_SPEED 3
 
 #define PLAYER_WIDTH 5
 #define PLAYER_HEIGHT 10

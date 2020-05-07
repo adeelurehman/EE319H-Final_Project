@@ -18,7 +18,9 @@ public:
 	int gemCount;
 
 	int playerstate; //0: on ground, 1: jumping
-
+	
+	int prevTickY; 
+	int prevprevTickY; 
 	int prevX;
 	int prevY;
 	

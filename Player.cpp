@@ -18,11 +18,15 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 	
 	prevX = -50;
 	prevY = -50;
+	prevTickY = Ypos; 
+	prevprevTickY = Ypos; 
 	
 	playerstate = 0; 
 }
 
 void Player::update() {
+	prevprevTickY = prevTickY; 
+	prevTickY = Ypos; 
 	buttonCollision(this);
 	//button collision        has its own function now
 //	for(int i = 0; i < 2; i++)
@@ -120,17 +124,17 @@ void Player::update() {
 	{
 		//todo victory
 	}
+	
+	if (prevTickY == Ypos && prevTickY == prevprevTickY) {
+		playerstate = 0;
+	}
+	else {
+		playerstate = 1;
+	}
 }
 
 void Player::drawMe() {
-	
-	if (prevY != Ypos) {
-		playerstate = 1;
-	}
-	else {
-		playerstate = 0;
-	}
-	
+		
 	if (prevX == Xpos && prevY==Ypos)
 		return;
 	
