@@ -482,6 +482,21 @@
               <FileType>8</FileType>
               <FilePath>.\Controls.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Physics.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Physics.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VerticalMovingPlat.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\VerticalMovingPlat.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>EndDoor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\EndDoor.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -591,6 +606,16 @@
               <FileName>Controls.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Controls.h</FilePath>
+            </File>
+            <File>
+              <FileName>VerticalMovingPlat.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\VerticalMovingPlat.h</FilePath>
+            </File>
+            <File>
+              <FileName>EndDoor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\EndDoor.h</FilePath>
             </File>
           </Files>
         </Group>
