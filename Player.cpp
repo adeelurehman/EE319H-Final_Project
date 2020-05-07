@@ -64,7 +64,8 @@ void Player::update() {
 	}
 	if((levelOneB[progB].type == 0 && this->type != 0)||(levelOneB[progB].type == 1 && this->type != 1)||(levelOneB[progB].type == 3))
 	{
-		int dead = 1; //todo dead function
+		int dead1 = 1; //todo dead function
+		dead(); 
 	}
 	
 	//VP collision

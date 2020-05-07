@@ -54,3 +54,7 @@ void TIMER1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
   (*PeriodicTask1)();                // execute user task
 }
+
+void Timer1_STOP() {
+	TIMER1_CTL_R = 0x00000000;
+}

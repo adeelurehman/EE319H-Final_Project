@@ -5,6 +5,9 @@
 #include "Button.h"
 #include "VerticalMovingPlat.h"
 #include "ST7735.h"
+#include "Timer0.h"
+#include "Timer1.h"
+#include "strings.h" 
 
 int score = 0;
 
@@ -62,4 +65,10 @@ void endDoorCollision(Player* p)
 		levelOneEndDoor[i].endFlag = 0;
 		}
 	}
+}
+
+void dead() {
+	Timer0_Pause(); 
+	Timer1_STOP(); 
+	DrawDead(); 
 }

@@ -11,8 +11,12 @@
 #define PLAYER_WIDTH 5
 #define PLAYER_HEIGHT 10
 
+extern int score; 
+
 void gemCollision(Player* p);
 void buttonCollision(Player* p);
 void endDoorCollision(Player* p);
+
+void dead();
 
 #endif

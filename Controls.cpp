@@ -13,6 +13,7 @@ PD2: Water Move
 #include "Controls.h"
 #include "inc/tm4c123gh6pm.h"
 #include "stdint.h"
+#include "strings.h" 
 
 void (*Fire_Move)(bool pressedRight, bool pressedLeft);
 void (*Fire_Jump)(bool pressed);
@@ -39,6 +40,24 @@ void Controls_Init( void (*firemove)(bool pressedRight, bool pressedLeft),
 	GPIO_PORTE_IM_R |= 0x0F;
 	NVIC_EN0_R |= 0x10; 
 										
+											//portF GPIO init
+		SYSCTL_RCGCGPIO_R |= 0x20;
+	__nop();
+	__nop(); 
+	GPIO_PORTF_LOCK_R = GPIO_LOCK_KEY;
+	GPIO_PORTF_AMSEL_R &= ~0x11;
+	GPIO_PORTF_AFSEL_R &= ~0x11; 
+	GPIO_PORTF_PCTL_R &= ~0xFFFFFFFF;
+	GPIO_PORTF_DIR_R &= ~0x11;
+	GPIO_PORTF_DEN_R |= 0x11;
+	GPIO_PORTF_PUR_R |= 0x11;
+	GPIO_PORTF_IS_R &= ~0x11;     // (d) PF4 is edge-sensitive
+  GPIO_PORTF_IBE_R &= ~0x11;    //     PF4 is not both edges
+  GPIO_PORTF_IEV_R &= ~0x11;    //     PF4 falling edge event
+  GPIO_PORTF_ICR_R = 0x11;      // (e) clear flag4
+	GPIO_PORTF_IM_R |= 0x11;
+	NVIC_EN0_R |= 0x40000000; 
+	
 											//ADC on PortD Init
 	SYSCTL_RCGCADC_R |= 0x01; //enable ADC0
 	SYSCTL_RCGCGPIO_R |= 1<<3; //enable Port D
@@ -86,4 +105,16 @@ void SlidePot_Update() {
 	result /= 1366;
 	result -= 1;
 	Water_Move(result); 
+}
+
+void GPIOF_Handler(void) {
+	GPIO_PORTF_ICR_R = 0x11;
+	int data = GPIO_PORTF_DATA_R;
+	if ((data&0x01) == 0) {
+		//PF0 Pressed?
+		language = !language; 
+	}
+	if ((data&0x10) == 0) {
+		//PF4 Pressed?
+	}
 }

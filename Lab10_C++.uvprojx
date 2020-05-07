@@ -502,6 +502,11 @@
               <FileType>8</FileType>
               <FilePath>.\Music.cpp</FilePath>
             </File>
+            <File>
+              <FileName>strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\strings.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -626,6 +631,11 @@
               <FileName>Music.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Music.h</FilePath>
+            </File>
+            <File>
+              <FileName>strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\strings.h</FilePath>
             </File>
           </Files>
         </Group>

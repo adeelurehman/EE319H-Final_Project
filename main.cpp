@@ -67,6 +67,7 @@
 #include "Controls.h" 
 #include "VerticalMovingPlat.h"
 #include "Music.h" 
+#include "strings.h" 
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
@@ -131,6 +132,7 @@ int main(void) {
 	}
 	levelOneEndDoor[0].drawMe();
 	levelOneEndDoor[1].drawMe(); 
+	strings_init(); 
 	while(true) {
 		fireboy->drawMe();
 		watergirl->drawMe();
