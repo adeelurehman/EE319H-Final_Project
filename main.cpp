@@ -65,6 +65,7 @@
 #include "Physics.h"
 #include "Systick.h" 
 #include "Controls.h" 
+#include "VerticalMovingPlat.h"
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
@@ -121,6 +122,7 @@ int main(void) {
 	for (int i=0; i<33; i++) {
 			levelOneB[i].drawMe(); 
 	}
+	levelOneVP.drawMe();
 	
 	while(true) {
 		fireboy->drawMe();

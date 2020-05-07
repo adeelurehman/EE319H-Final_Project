@@ -25,11 +25,17 @@ void Button::drawMe()
 
 void Button::pressed()
 {
+	if(this->press == 0)
+	{
 	this->press = 1;
 	ST7735_FillRect(x, y, w, h, BACKGROUND_COLOR);
+	}
 }
 void Button::released()
 {
+	if(this->press == 1)
+	{
 	this->press = 0;
 	ST7735_FillRect(x, y, w, h, 0xFFE0);
+	}
 }
