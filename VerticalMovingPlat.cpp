@@ -29,7 +29,7 @@ void VertPlat::updateVP()
 {
 	if(levelOneButton[0].press == 1 || levelOneButton[1].press == 1)
 	{
-		if(this->y > this->miny)
+		if(this->y < this->miny)
 		{
 			eraseMe();
 			this->y += 2;
@@ -38,7 +38,7 @@ void VertPlat::updateVP()
 	}
 	if(levelOneButton[0].press == 0 && levelOneButton[1].press == 0)
 	{
-		if(this->y < this->maxy)
+		if(this->y > this->maxy)
 		{
 			eraseMe();
 			this->y -= 2;
