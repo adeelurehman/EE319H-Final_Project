@@ -1,6 +1,7 @@
 #include "EndDoor.h"
 #include "ST7735.h"
 
+
 EndDoor::EndDoor(int x, int y, int w, int h, int t) {
 	this->x = x;
 	this->y = y;
@@ -12,7 +13,20 @@ EndDoor::EndDoor(int x, int y, int w, int h, int t) {
 }
 
 void EndDoor::drawMe() const {
-	ST7735_FillRect(x, y, w, h, 0xA01F);
+	if(this->type == 0)
+	{
+		ST7735_FillRect(x, y, w, 1, 0xFF08);
+		ST7735_FillRect(x, y+1, 1, h-1, 0xFF08);
+		ST7735_FillRect(x+w, y+1, 1, h-1, 0xFF08);
+		ST7735_FillRect(x+1, y+1, x-1, h-1, 0xFA08);
+	}
+	if(this->type == 1)
+	{
+		ST7735_FillRect(x, y, w, 1, 0x001F);
+		ST7735_FillRect(x, y+1, 1, h-1, 0x001F);
+		ST7735_FillRect(x+w, y+1, 1, h-1, 0x001F);
+		ST7735_FillRect(x+1, y+1, x-1, h-1, 0x001C);
+	}
 }
 
 bool EndDoor::testEndDoor(int x, int y, int w, int h) const {
