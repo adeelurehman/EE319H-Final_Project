@@ -118,6 +118,7 @@ int main(void) { while(true) {
   Output_Init();
 	ST7735_SetRotation(1); 
 	ST7735_FillScreen(0x0000); 
+	for (int i=0; i<10000; i++); 
 	Music_Init(); 
 	fireboy = Fireboy_Init(7,115);
 	watergirl = Watergirl_Init(21,115);	
