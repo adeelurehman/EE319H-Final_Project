@@ -15,17 +15,17 @@ EndDoor::EndDoor(int x, int y, int w, int h, int t) {
 void EndDoor::drawMe() const {
 	if(this->type == 0)
 	{
-		ST7735_FillRect(x, y, w, 1, 0xFF08);
-		ST7735_FillRect(x, y+1, 1, h-1, 0xFF08);
-		ST7735_FillRect(x+w-1, y+1, 1, h-1, 0xFF08);
-		ST7735_FillRect(x+1, y+1, x-1, h-1, 0xFA08);
+		ST7735_FillRect(x, y, w, h, 0xFF08);
+		//ST7735_FillRect(x, y+1, 1, h-1, 0xFF08);
+		//ST7735_FillRect(x+w-1, y+1, 1, h-1, 0xFF08);
+		ST7735_FillRect(x+1, y+1, x-2, h-1, 0xFA08);
 	}
 	if(this->type == 1)
 	{
-		ST7735_FillRect(x, y, w, 1, 0x001F);
-		ST7735_FillRect(x, y+1, 1, h-1, 0x001F);
-		ST7735_FillRect(x+w, y+1, 1, h-1, 0x001F);
-		ST7735_FillRect(x+1, y+1, x-1, h-1, 0x001C);
+		ST7735_FillRect(x, y, w, h, 0x001F);
+		//ST7735_FillRect(x, y+1, 1, h-1, 0x001F);
+		//ST7735_FillRect(x+w-1, y+1, 1, h-1, 0x001F);
+		ST7735_FillRect(x+1, y+1, x-2, h-1, 0x001C);
 	}
 }
 
