@@ -18,6 +18,7 @@ void gemCollision(Player* p)
 			if(p->type == levelOneG[i].type && levelOneG[i].collect == 0)
 			{				
 				levelOneG[i].collected();
+				//levelOneG[i].collect = 1; 
 				p->gemCount++;
 				score+=100;
 				return;

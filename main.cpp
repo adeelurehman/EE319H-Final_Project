@@ -66,6 +66,7 @@
 #include "Systick.h" 
 #include "Controls.h" 
 #include "VerticalMovingPlat.h"
+#include "Music.h" 
 
 extern "C" void DisableInterrupts(void);
 extern "C" void EnableInterrupts(void);
@@ -103,6 +104,7 @@ void moveFire(bool right, bool left) {
 }
 
 void tickUpdate() {
+	Music_Update(); 
 	SlidePot_Update(); 
 	fireboy->update(); 	
 	watergirl->update();
@@ -113,17 +115,22 @@ int main(void) {
   Random_Init(1);
   Output_Init();
 	ST7735_SetRotation(1); 
+	Music_Init(); 
 	fireboy = Fireboy_Init(7,115);
-	watergirl = Watergirl_Init(21,115); 
-	SysTick_Init(&tickUpdate, 0x3D08FF);
-	SysTick_Start(); 
+	watergirl = Watergirl_Init(21,115);	
+	Timer0_Init(&tickUpdate, 0x4C4B3F);
+	Timer0_Start(); 
 	Controls_Init(&moveFire,&jumpFire,&jumpWater,&moveWater); 
 	EnableInterrupts();
 	for (int i=0; i<33; i++) {
 			levelOneB[i].drawMe(); 
 	}
 	levelOneVP.drawMe();
-	
+	for (int i=0; i<2; i++) {
+		levelOneButton[i].drawMe(); 
+	}
+	levelOneEndDoor[0].drawMe();
+	levelOneEndDoor[1].drawMe(); 
 	while(true) {
 		fireboy->drawMe();
 		watergirl->drawMe();

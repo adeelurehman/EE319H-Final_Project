@@ -2,7 +2,9 @@
 #include "stdint.h"
 #include "inc/tm4c123gh6pm.h"
 
-extern "C" void SysTick_Handler(void);
+//DO NOT USE
+
+//extern "C" void SysTick_Handler(void);
 
 void (*PeriodicTask)(void);
 

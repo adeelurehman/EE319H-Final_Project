@@ -497,6 +497,11 @@
               <FileType>8</FileType>
               <FilePath>.\EndDoor.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Music.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Music.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -616,6 +621,11 @@
               <FileName>EndDoor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\EndDoor.h</FilePath>
+            </File>
+            <File>
+              <FileName>Music.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Music.h</FilePath>
             </File>
           </Files>
         </Group>

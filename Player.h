@@ -17,6 +17,8 @@ public:
 	int Yvel;
 	int gemCount;
 
+	int playerstate; //0: on ground, 1: jumping
+
 	int prevX;
 	int prevY;
 	

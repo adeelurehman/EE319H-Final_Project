@@ -14,11 +14,11 @@ void Barrier::drawMe() const {//put ifs based on type to change color of barrier
 	{
 		ST7735_FillRect(x, y, w, h, 0x6286);
 	}
-	if(this->type == 0)
+	if(this->type == 1)
 	{
 		ST7735_FillRect(x, y, w, h, 0x001F);
 	}
-	if(this->type == 1)
+	if(this->type == 0)
 	{
 		ST7735_FillRect(x, y, w, h, 0xF800);
 	}

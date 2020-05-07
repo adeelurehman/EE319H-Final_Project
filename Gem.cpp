@@ -30,17 +30,15 @@ void Gem::drawMe()
 {
 	if(this->collect == 0)
 	{
-		ST7735_DrawBitmap(this->x, this->y, this->gemTexture, w, h);
-	}
-	else{
-		ST7735_FillRect(x, y, w, h, 0x0000);
+		ST7735_DrawBitmapNormal(this->x, this->y, this->gemTexture, w, h);
 	}
 }
 
 void Gem::collected()
 {
-	if(collect == 0)
+	if(this->collect == 0)
 	{
 		this->collect = 1;
+		ST7735_FillRect(x, y, w, h, 0x0000);
 	}
 }

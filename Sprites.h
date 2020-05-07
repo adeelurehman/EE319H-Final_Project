@@ -15,11 +15,12 @@ Barrier(64,97,34,3,2), Barrier(98,99,15,1,2), Barrier(113,97,29,3,2), Barrier(3,
 Barrier(142,115,15,10,2), Barrier(0,125,65,3,2), Barrier(65,127,16,1,2), Barrier(81,125,5,3,2), Barrier(86,127,15,1,2),
 Barrier(101,125,59,3,2), Barrier(65,125,16,2,1), Barrier(86,125,15,2,0), Barrier(98,97,15,2,3), Barrier(101,62,15,2,3),
 Barrier(63,50,30,2,0), Barrier(63,62,30,2,1), Barrier(0,3,3,122,2), Barrier(157,3,3,122,2)}; //DONE
-static Gem levelOneG[10] = {Gem(63,42,9,7,0), Gem(73,42,9,7,0), Gem(83,42,9,7,0), Gem(104,44,9,7,1), Gem(101,82,9,7,1),
-Gem(63,74,9,7,0), Gem(73,74,9,7,0), Gem(83,74,9,7,0), Gem(69,117,9,7,0), Gem(89,117,9,7,1)};
-static Button levelOneButton[2] = {Button(36,60,8,2,1), Button(24,83,8,2,1)}; //done
-static VertPlat levelOneVP = VertPlat(4,62,15,3); //done
-static EndDoor levelOneEndDoor[2] = {EndDoor(36,60,8,2,1), EndDoor(24,83,8,2,1)}; //done
+
+extern Gem levelOneG[10];
+
+extern Button levelOneButton[2];
+extern VertPlat levelOneVP;
+extern EndDoor levelOneEndDoor[2];
 
 //returns pointer to fireboy
 //parms: coords for inital position

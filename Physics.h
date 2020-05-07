@@ -8,7 +8,7 @@
 #define BACKGROUND_COLOR 0x0000
 #define PLAYER_SPEED 2
 
-#define PLAYER_WIDTH 7
+#define PLAYER_WIDTH 5
 #define PLAYER_HEIGHT 10
 
 void gemCollision(Player* p);

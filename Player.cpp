@@ -18,6 +18,8 @@ Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* 
 	
 	prevX = -50;
 	prevY = -50;
+	
+	playerstate = 0; 
 }
 
 void Player::update() {
@@ -120,6 +122,14 @@ void Player::update() {
 }
 
 void Player::drawMe() {
+	
+	if (prevY != Ypos) {
+		playerstate = 1;
+	}
+	else {
+		playerstate = 0;
+	}
+	
 	if (prevX == Xpos && prevY==Ypos)
 		return;
 	
@@ -143,7 +153,7 @@ void Player::eraseMe() {
 }
 
 void Player::jump() {
-	if (Yvel==0) {
+	if (playerstate  == 0) {
 		Yvel = JUMP_VELOCITY;
 	}
 }
