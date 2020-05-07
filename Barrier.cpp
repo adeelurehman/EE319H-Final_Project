@@ -12,19 +12,19 @@ Barrier::Barrier(int x, int y, int w, int h, int t) {
 void Barrier::drawMe() const {//put ifs based on type to change color of barrier
 	if(this->type == 2)
 	{
-		ST7735_FillRect(x, y, w, h, 0xA01F);
+		ST7735_FillRect(x, y, w, h, 0x6286);
 	}
 	if(this->type == 0)
 	{
-		ST7735_FillRect(x, y, w, h, 0xA01F);
+		ST7735_FillRect(x, y, w, h, 0x001F);
 	}
 	if(this->type == 1)
 	{
-		ST7735_FillRect(x, y, w, h, 0xA01F);
+		ST7735_FillRect(x, y, w, h, 0xF800);
 	}
 	if(this->type == 3)
 	{
-		ST7735_FillRect(x, y, w, h, 0xA01F);
+		ST7735_FillRect(x, y, w, h, 0x07E0);
 	}
 }
 

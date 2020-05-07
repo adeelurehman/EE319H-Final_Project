@@ -3,6 +3,7 @@
 #include "Physics.h"
 #include "Sprites.h"
 #include "Gem.h"
+#include "EndDoor.h"
 
 Player::Player(int type, const unsigned short* rightTxtr, const unsigned short* leftTxtr, const unsigned short* forwardTxtr, int width, int height, int x, int y) {
 	this->type = type; 
@@ -112,6 +113,10 @@ void Player::update() {
 //		Xvel += X_GRAVITY; 
 //	}
 	endDoorCollision(this);
+	if(levelOneEndDoor[0].endFlag == 1 && levelOneEndDoor[1].endFlag == 1)
+	{
+		//todo victory
+	}
 }
 
 void Player::drawMe() {
