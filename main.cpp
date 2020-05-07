@@ -111,11 +111,13 @@ void tickUpdate() {
 	watergirl->update();
 }
 
-int main(void) {
+int main(void) { while(true) {
+	gameRunning = 1; 
 	PLL_Init(Bus80MHz);       // Bus clock is 80 MHz 
   Random_Init(1);
   Output_Init();
 	ST7735_SetRotation(1); 
+	ST7735_FillScreen(0x0000); 
 	Music_Init(); 
 	fireboy = Fireboy_Init(7,115);
 	watergirl = Watergirl_Init(21,115);	
@@ -133,14 +135,16 @@ int main(void) {
 	levelOneEndDoor[0].drawMe();
 	levelOneEndDoor[1].drawMe(); 
 	strings_init(); 
-	while(true) {
+	while(gameRunning) {
 		fireboy->drawMe();
 		watergirl->drawMe();
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<10 && gameRunning; i++) {
 			levelOneG[i].drawMe(); 
 		}
 	}
-}
+	Player_Destroy(fireboy);
+	Player_Destroy(watergirl); 
+} }
 #endif
 
 #ifdef ControlsTest
