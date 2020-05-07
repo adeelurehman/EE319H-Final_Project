@@ -9,7 +9,7 @@
 void gemCollision(Player* p)
 {
 	int progG = 0;
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 10; i++)
 	{
 		if (!levelOneG[i].testG(p->Xpos+p->Xvel, p->Ypos+p->Yvel, p->width, p->height))
 		{

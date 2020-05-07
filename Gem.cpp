@@ -1,6 +1,7 @@
 #include "Gem.h"
 #include "ST7735.h"
 #include "Sprites.h"
+#include "images.h"
 
 
 Gem::Gem(int x, int y, int w, int h, int t) {
@@ -10,6 +11,14 @@ Gem::Gem(int x, int y, int w, int h, int t) {
 	this->h = h;
 	this->type = t;
 	this->collect = 0;
+	if(t == 0)
+	{
+		this->gemTexture = Water_Gem;
+	}
+	if(t == 1)
+	{
+		this->gemTexture = Fire_Gem;
+	}
 }
 
 bool Gem::testG(int x, int y, int w, int h) const {

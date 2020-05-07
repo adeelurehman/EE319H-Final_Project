@@ -127,7 +127,7 @@ int main(void) {
 	while(true) {
 		fireboy->drawMe();
 		watergirl->drawMe();
-		for (int i=0; i<4; i++) {
+		for (int i=0; i<10; i++) {
 			levelOneG[i].drawMe(); 
 		}
 	}
