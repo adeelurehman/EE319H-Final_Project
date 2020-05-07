@@ -9,7 +9,10 @@
 #include "Timer1.h"
 #include "strings.h" 
 
+extern "C" void Reset_Handler(void); 
+
 int score = 0;
+int gameRunning = 1; 
 
 void gemCollision(Player* p)
 {
@@ -71,4 +74,6 @@ void dead() {
 	Timer0_Pause(); 
 	Timer1_STOP(); 
 	DrawDead(); 
+	for (int i=0; i<20000000; i++);
+	gameRunning = 0; 
 }

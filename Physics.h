@@ -12,6 +12,7 @@
 #define PLAYER_HEIGHT 10
 
 extern int score; 
+extern int gameRunning; 
 
 void gemCollision(Player* p);
 void buttonCollision(Player* p);
