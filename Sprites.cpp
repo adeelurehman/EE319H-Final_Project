@@ -1,13 +1,14 @@
 #include "Sprites.h"
 #include "Player.h"
 #include "images.h"
+#include "Physics.h" 
 
 Player* Fireboy_Init(int x, int y) {
-	return new Player(1, SmallEnemy20pointB, SmallEnemy20pointB, SmallEnemy20pointB, 16, 10, x, y);
+	return new Player(1, Fire_left, Fire_Middle, Fire_Right, PLAYER_WIDTH, PLAYER_HEIGHT, x, y);
 }
 
 Player* Watergirl_Init(int x, int y) {
-	return new Player(0, Bunker0, Bunker0, Bunker0, 18, 5, x, y);
+	return new Player(0, Water_Left, Water_Middle, Water_Right, PLAYER_WIDTH, PLAYER_HEIGHT, x, y);
 }
 
 void Player_Destroy(Player* temp) {
