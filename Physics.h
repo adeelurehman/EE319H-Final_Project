@@ -19,5 +19,6 @@ void buttonCollision(Player* p);
 void endDoorCollision(Player* p);
 
 void dead();
+void win(); 
 
 #endif

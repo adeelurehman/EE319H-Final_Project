@@ -7,6 +7,7 @@ char language = 0;
 
 const char* scorePrefix[2] = {"Score: ", "Resultado: "};
 const char* deathMessagePrefix[2] = {"LOL U SUCK", "JAJAJA TU CHUPAR"}; 
+const char* winMessagePrefix[2] = {"VICTORY SCREAM", "GRITO VICTORIA" }; 
 
 const uint8_t scoreLen[2] = {6,10};
 
@@ -45,6 +46,15 @@ void updateStrings() {
 void DrawDead() {
 	ST7735_FillRect(45,45,85,30,0xffff); 
 	ST7735_DrawString(DeadStringX,DeadStringY,deathMessagePrefix[language],ST7735_CYAN);
+	ST7735_DrawString(DeadStringX,DeadStringY+1,scorePrefix[language],ST7735_CYAN); 
+	ST7735_SetCursor(DeadStringX+scoreLen[language], DeadStringY+1); 
+	ST7735_SetTextColor(ST7735_CYAN); 
+	ST7735_OutUDec(score); 
+}
+
+void DrawWin() {
+	ST7735_FillRect(45,45,85,30,0xffff); 
+	ST7735_DrawString(DeadStringX,DeadStringY,winMessagePrefix[language],ST7735_CYAN);
 	ST7735_DrawString(DeadStringX,DeadStringY+1,scorePrefix[language],ST7735_CYAN); 
 	ST7735_SetCursor(DeadStringX+scoreLen[language], DeadStringY+1); 
 	ST7735_SetTextColor(ST7735_CYAN); 

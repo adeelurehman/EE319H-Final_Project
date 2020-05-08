@@ -4,7 +4,7 @@
 #include "Physics.h" 
 
 Gem levelOneG[10] = {Gem(63,42,9,7,0), Gem(73,42,9,7,0), Gem(83,42,9,7,0), Gem(104,44,9,7,1), Gem(101,82,9,7,1),
-Gem(63,54,9,7,0), Gem(73,54,9,7,0), Gem(83,54,9,7,0), Gem(69,117,9,7,1), Gem(89,117,9,7,0)};
+Gem(63,54,9,7,1), Gem(73,54,9,7,1), Gem(83,54,9,7,1), Gem(69,117,9,7,1), Gem(89,117,9,7,0)};
 Button levelOneButton[2] = {Button(36,60,8,2,1), Button(24,83,8,2,1)}; //done
 VertPlat levelOneVP = VertPlat(4,62,15,3); //done
 EndDoor levelOneEndDoor[2] = {EndDoor(9,13,9,13,1), EndDoor(29,13,9,13,0)}; //done

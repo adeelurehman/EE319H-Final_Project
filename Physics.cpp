@@ -7,7 +7,9 @@
 #include "ST7735.h"
 #include "Timer0.h"
 #include "Timer1.h"
-#include "strings.h" 
+#include "strings.h"
+#include "inc/tm4c123gh6pm.h"
+#include "Sound.h" 
 
 extern "C" void Reset_Handler(void); 
 
@@ -73,7 +75,16 @@ void endDoorCollision(Player* p)
 void dead() {
 	Timer0_Pause(); 
 	Timer1_STOP(); 
+	Sound_Play(0); 
 	DrawDead(); 
 	for (int i=0; i<20000000; i++);
 	gameRunning = 0; 
+}
+
+void win() {
+	Timer0_Pause();
+	Timer1_STOP();
+	Sound_Play(0); 
+	DrawWin();
+	while(true); 
 }

@@ -123,6 +123,7 @@ void Player::update() {
 	if(levelOneEndDoor[0].endFlag == 1 && levelOneEndDoor[1].endFlag == 1)
 	{
 		//todo victory
+		win(); 
 	}
 	
 	if (prevTickY == Ypos && prevTickY == prevprevTickY) {
