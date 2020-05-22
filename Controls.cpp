@@ -14,6 +14,7 @@ PD2: Water Move
 #include "inc/tm4c123gh6pm.h"
 #include "stdint.h"
 #include "strings.h" 
+#include "ST7735.h" 
 
 void (*Fire_Move)(bool pressedRight, bool pressedLeft);
 void (*Fire_Jump)(bool pressed);
@@ -102,9 +103,15 @@ void SlidePot_Update() {
 	while((ADC0_RIS_R&0x08)==0){};
 	result = ADC0_SSFIFO3_R&0xFFF;
 	ADC0_ISC_R = 0x0008;
-	result /= 1366;
-	result -= 1;
-	Water_Move(result); 
+	uint8_t direction;
+	if (result < 1024)
+		direction = -1;
+	else if (result > 1024*3)
+		direction = 1;
+	else 
+		direction = 0; 
+	//ST7735_OutUDec(direction); 
+	Water_Move(direction);
 }
 
 void GPIOF_Handler(void) {
